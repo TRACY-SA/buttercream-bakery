@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fbf7f2;
+  --color-cream-deep: #f3ebe3;
+  --color-blush: #f7cbd8;
+  --color-blush-deep: #e7a0b4;
+  --color-butter: #f9e08c;
+  --color-butter-deep: #e4c85a;
+  --color-rose: #c96b84;
+  --color-rose-deep: #7a3550;
+  --color-ink: #3f2a2e;
+  --color-muted: #6d565a;
+  --color-gold: #8a6432;
+  --color-line: #eadfd6;
+  --color-white: #ffffff;
+  --font-sans: var(--font-outfit), "Segoe UI", sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, serif;
+  --font-script: var(--font-great-vibes), cursive;
+  --radius-card: 1.5rem;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: #f7cbd8;
+  color: #3f2a2e;
+}
+
+:focus-visible {
+  outline: 2px solid #7a3550;
+  outline-offset: 3px;
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.marquee-track {
+  animation: marquee 52s linear infinite;
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.7s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track,
+  .rise {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
